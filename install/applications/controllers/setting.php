@@ -51,7 +51,7 @@ class Setting extends A_Controller
 		}
       
         //write database configuration file
-        $this->write_database_file('../core/application/config/database.php', $db_config);
+        $this->write_database_file('../admin/application/config/database.php', $db_config);
 
 
         $this->output->set_output(json_encode(array('success' => TRUE)));
@@ -93,18 +93,18 @@ class Setting extends A_Controller
     private function write_config_file() {
 		
 		$this->load->helper('file');
-		$file = file_get_contents('../core/application/config/config.php');
+		$file = file_get_contents('../admin/application/config/config.php');
         $lines = explode("\n", $file);
 		$sess = str_replace( '$config[\'sess_use_database\'] = FALSE;','$config[\'sess_use_database\'] = TRUE;', $lines); 
-        $fp = @fopen('../core/application/config/config.php', 'w');
+        $fp = @fopen('../admin/application/config/config.php', 'w');
         @fputs($fp, implode("\n", $sess));
         fclose($fp);
 		
 		
-		$config = file_get_contents('../core/application/config/config.php');
+		$config = file_get_contents('../admin/application/config/config.php');
         $hash = explode("\n", $config);
 		$encryption = str_replace( '$config[\'encryption_key\'] = \'blog\';','$config[\'encryption_key\'] = \''.md5(rand(111111,rand(1111111111,9999999999))).'\';', $hash);
-		$fpn = @fopen('../core/application/config/config.php', 'w');
+		$fpn = @fopen('../admin/application/config/config.php', 'w');
 		@fputs($fpn, implode("\n", $encryption));
 		fclose($fpn);
 		
@@ -118,10 +118,10 @@ class Setting extends A_Controller
 		
 		$www_location = substr($www_location, 0, strpos($www_location, 'install'));
 				
-		$url = file_get_contents('../core/application/config/config.php');
+		$url = file_get_contents('../admin/application/config/config.php');
         $base = explode("\n", $url);
 		$base_url = str_replace( '$config[\'base_url\'] = \'blog\';','$config[\'base_url\'] = \''.$www_location.'\';', $base); 
-        $fpc = @fopen('../core/application/config/config.php', 'w');
+        $fpc = @fopen('../admin/application/config/config.php', 'w');
         @fputs($fpc, implode("\n", $base_url));
         fclose($fpc);
 				

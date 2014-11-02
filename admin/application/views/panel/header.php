@@ -12,7 +12,7 @@
     <script src="<?php assets("js/jquery-1.8.2.js")?>"></script>
     <script src="<?php assets("js/jquery-ui-1.9.0.custom.js")?>"></script>
     <script src="<?php assets('js/jquery.ui.datepicker-cc.all.min.js')?>" language="javascript" type="text/javascript"></script>		
-	<script src="<?php assets("bootstrap/js/bootstrap.min.js")?>" language="javascript" type="text/javascript"></script>
+	<script src="<?php assets("../admin/assets/bootstrap/js/bootstrap.min.js")?>" language="javascript" type="text/javascript"></script>
 	<script src="<?php assets("editor/redactor/redactor.js")?>" language="javascript" type="text/javascript" ></script>
     <script src="<?php assets('editor/redactor/fa.js');?>"></script>
     <script src="<?php assets('js/menu.js')?>" language="javascript" type="text/javascript"></script>

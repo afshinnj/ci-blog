@@ -8,15 +8,15 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link rel="stylesheet" type="text/css" href="<?php assets("bootstrap/css/bootstrap.min.css")?>">
-    <link rel="stylesheet" type="text/css" href="<?php assets("bootstrap/css/bootstrap-theme.min.css")?>">
-    <link href="<?php  assets('css/login.css')?>" rel="stylesheet" type="text/css">
-    <script src="<?php assets('js/jquery-1.8.2.js')?>"></script>
-    <script src="<?php assets('js/jquery.easing.1.3.js')?>"></script>
-    <script src="<?php assets('js/login.js')?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php assets("../admin/assets/bootstrap/css/bootstrap.min.css")?>">
+    <link rel="stylesheet" type="text/css" href="<?php assets("../admin/assets/bootstrap/css/bootstrap-theme.min.css")?>">
+    <link href="<?php  assets('../admin/assets/css/login.css')?>" rel="stylesheet" type="text/css">
+    <script src="<?php assets('../admin/assets/js/jquery-1.8.2.js')?>"></script>
+    <script src="<?php assets('../admin/assets/js/jquery.easing.1.3.js')?>"></script>
+    <script src="<?php assets('../admin/assets/js/login.js')?>"></script>
     <script type="text/javascript" language="javascript">
-   	 var base_url="<?php echo site_url()?>";
-$(document).ready(function(e){$('#enter').click(function(){var name = $('.name').val();var pass=$('.pass').val();if(name==''){$('.msg').fadeIn(500,'easeOutBounce').html('<p>نام کاربری خود را وارد کنید.</p>').delay(3000).fadeOut(500,'easeOutBounce');exit()}if(pass==''){$('.msg').fadeIn(500,'easeOutBounce').html('<p>رمز عبور خود را وارد کنید.</p>').delay(3000).fadeOut(500,'easeOutBounce');exit()}if(name!=''&& pass!=''){$('#enter').html('<img src="<?php echo site_url('assets/img/loader.gif')?>" > درحال ارسال');$.ajax({type:'POST',url:base_url+"validate_credentials",data:{'name':name,'pass':pass},dataType:"json",success:function(data){if(data=='login'){$('.msg').fadeIn(500,'easeOutBounce').html('نام کاربری یا رمز عبور اشتباه است.').delay(2000).fadeOut(500,'easeOutBounce',function(){$('#enter').html('ورود');});
+   	 var base_url="<?php echo base_url()?>";
+$(document).ready(function(e){$('#enter').click(function(){var name = $('.name').val();var pass=$('.pass').val();if(name==''){$('.msg').fadeIn(500,'easeOutBounce').html('<p>نام کاربری خود را وارد کنید.</p>').delay(3000).fadeOut(500,'easeOutBounce');exit()}if(pass==''){$('.msg').fadeIn(500,'easeOutBounce').html('<p>رمز عبور خود را وارد کنید.</p>').delay(3000).fadeOut(500,'easeOutBounce');exit()}if(name!=''&& pass!=''){$('#enter').html('<img src="<?php echo base_url('admin/assets/img/loader.gif')?>" > درحال ارسال');$.ajax({type:'POST',url:base_url+"login/validate_credentials",data:{'name':name,'pass':pass},dataType:"json",success:function(data){if(data=='login'){$('.msg').fadeIn(500,'easeOutBounce').html('نام کاربری یا رمز عبور اشتباه است.').delay(2000).fadeOut(500,'easeOutBounce',function(){$('#enter').html('ورود');});
 exit()}else if(data == 'admin'){$('.msg').fadeIn(500,'easeOutBounce').delay(2000).fadeOut(500,'easeOutBounce',function(){window.location=base_url+data}).html('خوش آمدید.')}else{$('.msg').fadeIn('slow','easeOutBounce').delay(2000).fadeOut('hide','easeOutBounce',function(){window.location=base_url+data;}).html('مرحله دوم ورود.')}}})}})}) 
 								
     </script>
@@ -29,7 +29,7 @@ exit()}else if(data == 'admin'){$('.msg').fadeIn(500,'easeOutBounce').delay(2000
             	<div class="col-lg-4 col-md-offset-4">
                 	<div class="panel panel-default">
                    		<div class="panel-heading text-center">
-                        	<img src="<?php echo site_url('assets/img/ablog-logo.png')?>" width="165" height="50">
+                        	<img src="<?php echo site_url('admin/assets/img/ablog-logo.png')?>" width="165" height="50">
                         </div>
                         <div class="panel-body">
                         <div class="msg text-center alert alert-info"></div>

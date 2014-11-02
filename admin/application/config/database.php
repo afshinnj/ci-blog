@@ -80,10 +80,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default'] = array(
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '123456',
-	'database' => 'blog',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '',
 	'dbdriver' => 'mysql',
 	'dbprefix' => 'a_',
 	'pconnect' => TRUE,
